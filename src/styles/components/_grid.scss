@@ -1,0 +1,12 @@
+#root {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.track {
+  img {
+    width: 100%;
+    cursor: pointer;
+  }
+}
