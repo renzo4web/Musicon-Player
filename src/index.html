@@ -3,19 +3,71 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎧</text></svg>">
+    <link
+      rel="icon"
+      href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎧</text></svg>"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&display=swap" rel="stylesheet">
     <title>Musicon</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css"
+      integrity="sha512-HK5fgLBL+xu6dm/Ii3z4xhlSUyZgTT9tuc/hSrtw6uzJOvgRr2a9jyxxT1ely+B+xFAmJKVSTbpM/CuL7qxO8w=="
+      crossorigin="anonymous"
+    />
   </head>
-  <body>
-    <form id="form">
-      <input id="search" type="text" placeholder="Enter Your Musicon" />
-      <button type="submit">Go</button>
+  <body class="container bg-dark d-flex flex-column align-items-center">
+
+
+    <h1 class="display-4 fw-bold text-center">Search your favorite Musicon</h1>
+
+    <form
+      id="form"
+      class="input-group container container-sm mt-5"
+      style="max-width: 600px"
+    >
+      <input
+        class="form-control"
+        id="search"
+        type="text"
+        placeholder="Enter Your Musicon"
+        value="thundercat"
+      />
+      <button class="btn btn-primary" type="submit">Go</button>
     </form>
-    
-    <div class="player">
-      
+
+    <div style="max-width: 800px;" class="player m-4 bg-white rounded-3 p-3">
+      <img class="player-img" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/285/musical-note_1f3b5.png" alt="" />
+      <div class="volume">
+        <i class="fas fa-volume-up"></i>
+        <input
+          type="range"
+          class="form-control"
+          id="player-volume"
+          min="0"
+          max="1"
+          value="1"
+          step="0.01"
+        />
+      </div>
+
+      <div class="time">
+        <span class="currentTime m-1">00:00</span
+        ><input class="form-control" type="range" id="timebar" value="0" />
+        <span class="duration">00:00</span>
+      </div>
+
+      <h4 class="player-title"></h4>
     </div>
 
-    <div class="grid" id="root"></div>
+    <div class="grid container m-5" id="root"></div>
+
+    <footer class="container text-center mb-3">
+      <h5>
+        Made by <a href="https://github.com/renzo4web">Renzo</a> in plain Javascript
+      </h5>
+    </footer>
   </body>
 </html>

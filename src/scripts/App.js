@@ -11,7 +11,7 @@ class App {
     this.$gridResults = document.getElementById("root");
     this.$player = document.querySelector(".player");
 
-    this.player = null;
+    this.player = new Player();
     this.events();
   }
 
@@ -31,12 +31,6 @@ class App {
       console.log(validate);
     });
 
-    this.$player.addEventListener("click", (event) => {
-      if (event.target.tagName !== "IMG") return;
-      console.log(event.target.tagName);
-      this.player.togglePlayer();
-    });
-
     this.$gridResults.addEventListener("click", (event) =>
       this.gridHandler(event)
     );
@@ -48,22 +42,39 @@ class App {
 
     document.title = title;
 
-    this.player = new Player(`/tracks/${stream}`);
 
     const track = {
       imgUrl: trackClicked.src,
       title,
     };
 
-    this.player.startPlayer();
+    this.player.startPlayer(`/tracks/${stream}`);
     this.displayPlayingTrack(track);
   }
 
   displayPlayingTrack({ imgUrl, title }) {
-    this.$player.innerHTML = `
-    <img src="${imgUrl}" alt="${title}">
-    <h2>${title}</h2>
-    `;
+    this.$timebar = document.querySelector("#player-volume");
+    this.$playerTitle = document.querySelector(".player-title");
+    this.$playerImg = document.querySelector(".player-img");
+
+    this.$playerImg.src = imgUrl;
+    this.$playerTitle.textContent = title;
+
+    /* INIT PLAYER EVENTS */
+    this.$controlVolume = document.querySelector("#player-volume");
+
+    /* VOLUME EVENT */
+    this.$controlVolume.addEventListener("mouseup", (e) => {
+      const inputVolume = this.$controlVolume.value;
+      this.player.changeVolume(inputVolume);
+    });
+
+    /* PLAY/ PAUSE EVENT */
+    this.$player.addEventListener("click", (event) => {
+      if (event.target.tagName !== "IMG") return;
+      console.log(event.target.tagName);
+      this.player.togglePlayer();
+    });
   }
 
   async displayTracks(searchInput) {

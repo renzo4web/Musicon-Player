@@ -58,6 +58,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
+    "bootstrap": "^5.0.2",
     "core-js": "^3.8.1",
     "dotenv": "^10.0.0",
     "rfs": "^9.0.3",
