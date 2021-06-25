@@ -1,3 +1,13 @@
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
 .player {
   display: grid;
   grid-template-areas:
@@ -14,6 +24,9 @@
     height: 100%;
     max-width: 350px;
     object-fit: cover;
+    border-radius: 50%;
+    animation: none;
+    cursor: pointer;
     grid-area: img;
     @media (min-width: 650px) {
       & {
@@ -24,6 +37,7 @@
 
   h2 {
     grid-area: title;
+    word-break: break-all;
   }
 
   .time {
@@ -166,6 +180,12 @@
   input#player-volume[type="range"]:focus::-ms-fill-upper {
     background: #24e344;
   }
+
+  &.playing {
+    img.player-img {
+      animation: spin 10000ms infinite linear;
+    }
+  }
   @media (min-width: 650px) {
     & {
       grid-template-areas:
@@ -174,4 +194,8 @@
         "img time  time ";
     }
   }
+}
+
+.progress {
+  width: 100vw;
 }

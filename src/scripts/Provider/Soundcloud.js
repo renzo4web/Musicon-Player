@@ -11,6 +11,14 @@ export class Soundcloud {
     console.log("WORKs");
   }
 
+  async getTracksById(arrayOfIds) {
+    const val = await asyncWrapper(
+      arrayOfIds.map((id) => SC.get(`/tracks/${id}`))
+    );
+    console.log({ val });
+    return val;
+  }
+
   async getTracks(query) {
     const tracks = await asyncWrapper(
       SC.get("/tracks", {
