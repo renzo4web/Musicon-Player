@@ -10,7 +10,7 @@ export const Track = (track) => {
   return `
    
 
-        <div  class="track card text-white bg-primary mb-3">
+        <div  class="track border border-dark text-dark bg-primary mb-3">
   <div class="card-header">${msToHMS(duration)}</div>
   <div data-stream="${id}" data-title="${title}" class="card-body d-flex flex-column justify-content-between">
             <div class="hover-div">
@@ -18,7 +18,7 @@ export const Track = (track) => {
               artwork_url ? getFullArtwork(artwork_url) : placeHolderImg
             }" alt="${title}">
             </div>
-    <h5 class="card-title fw-bold">${title}</h5>
+    <h5 class="card-title mt-3 fw-bold">${title}</h5>
     <p class="card-text">
     <h6>${user.username}</h6>
     </p>

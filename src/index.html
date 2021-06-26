@@ -7,9 +7,12 @@
       rel="icon"
       href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🎧</text></svg>"
     />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800;900&display=swap"
+      rel="stylesheet"
+    />
     <title>Musicon</title>
     <link
       rel="stylesheet"
@@ -18,43 +21,65 @@
       crossorigin="anonymous"
     />
   </head>
-  <body class="container-fluid bg-dark d-flex flex-column align-items-center">
-
+  <body class="container-fluid bg-white d-flex flex-column align-items-center">
     <div class="progress d-none">
-      <div id="progress-bar" class="progress-bar" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100"></div>
+      <div
+        id="progress-bar"
+        class="progress-bar"
+        role="progressbar"
+        aria-valuenow="0"
+        aria-valuemin="0"
+        aria-valuemax="100"
+      ></div>
     </div>
+    <header>
+      <img src="./public/taxi-music.png" alt="Vibingss" />
+      <h1 class="display-4 fw-bold text-center">
+        Search your favorite Musicon
+      </h1>
+    </header>
 
-    <h1 class="display-4 fw-bold text-center">Search your favorite Musicon</h1>
-
-
-    <div class="alert alert-primary d-flex align-items-center d-none" role="alert">
-      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2" viewBox="0 0 16 16" role="img" aria-label="Warning:">
-        <path d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+    <div
+      class="alert alert-primary d-flex align-items-center d-none"
+      role="alert"
+    >
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        width="24"
+        height="24"
+        fill="currentColor"
+        class="bi bi-exclamation-triangle-fill flex-shrink-0 me-2"
+        viewBox="0 0 16 16"
+        role="img"
+        aria-label="Warning:"
+      >
+        <path
+          d="M8.982 1.566a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767L8.982 1.566zM8 5c.535 0 .954.462.9.995l-.35 3.507a.552.552 0 0 1-1.1 0L7.1 5.995A.905.905 0 0 1 8 5zm.002 6a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"
+        />
       </svg>
-      <div>
-        Robot not find musicones
-      </div>
+      <div>Robot not find musicones</div>
     </div>
 
     <form
       id="form"
       class="input-group container container-sm mt-5"
-      style="max-width: 600px;"
+      style="max-width: 600px"
     >
       <input
         class="form-control"
         id="search"
         type="text"
-        placeholder="Enter Your Musicon"
-        value="thundercat"
+        placeholder="What would you like to listen to?..."
       />
       <button class="btn btn-primary" type="submit">Go</button>
     </form>
 
-
-
-    <div style="max-width: 800px;" class="player m-4 bg-white rounded-3 p-3">
-      <img class="player-img m-auto" src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/285/musical-note_1f3b5.png" alt="" />
+    <div style="max-width: 800px" class="player m-4 bg-white border border-dark rounded-3 p-3">
+      <img
+        class="player-img m-auto border border-dark"
+        src="https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/120/apple/285/musical-note_1f3b5.png"
+        alt=""
+      />
       <div class="volume">
         <i class="fas fa-volume-up"></i>
         <input
@@ -77,13 +102,10 @@
       <h4 class="player-title mt-2"></h4>
     </div>
 
-    
     <div class="grid container m-5" id="root"></div>
 
     <footer class="container text-center mb-3">
-      <h5>
-         Made with 💖 <a href="https://github.com/renzo4web">Renzo</a>
-      </h5>
+      <h5>Made with 💖 <a href="https://github.com/renzo4web">Renzo</a></h5>
     </footer>
   </body>
 </html>
