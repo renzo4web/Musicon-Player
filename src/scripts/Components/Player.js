@@ -14,7 +14,6 @@ export class Player {
     this.$duration = document.querySelector(".duration");
     this.$coverSpinImg = document.querySelector(".player-img");
 
-    console.log(this.$timebar);
     this.player = null;
     this.timerId = null;
     this.isSongEnded = false;
@@ -34,6 +33,7 @@ export class Player {
     /* PLAY/ PAUSE EVENT */
     this.$coverSpinImg.addEventListener("click", this.togglePlayer.bind(this));
 
+    /* Release range input timebar */
     this.$timebar.addEventListener("mouseup", () => {
       this.player.play();
       this.intervalPlayer();
@@ -42,6 +42,7 @@ export class Player {
       }
     });
 
+    /* Hold range input timebar */
     this.$timebar.addEventListener("input", (e) => {
       this.player.pause();
       this.player.seek(this.$timebar.value);
@@ -84,7 +85,6 @@ export class Player {
     if (!this.player) {
       return;
     }
-
     this.intervalPlayer();
   }
 
@@ -130,6 +130,8 @@ export class Player {
       clearInterval(this.timerId);
       return;
     }
+
+    
     this.initEvents();
     await this.player.play();
     this.displayCurrentTime();
