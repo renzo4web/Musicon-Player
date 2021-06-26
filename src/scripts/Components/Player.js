@@ -43,17 +43,17 @@ export class Player {
     });
 
     /* Hold range input timebar */
-    this.$timebar.addEventListener("input", (e) => {
+    this.$timebar.addEventListener("input", () => {
       this.player.pause();
       this.player.seek(this.$timebar.value);
       this.$currentTime.textContent = msToHMS(this.player.currentTime());
-      console.log(this.$timebar.value);
       clearInterval(this.timerId);
     });
   }
 
   async intervalPlayer() {
     clearInterval(this.timerId);
+
     let totalTimeValue = this.player.getDuration();
     let totalTimeText = msToHMS(totalTimeValue);
 
@@ -101,8 +101,6 @@ export class Player {
   }
 
   togglePlayer() {
-    clearInterval(this.timerId);
-
     if (this.player.getState() === "playing") {
       this.player.pause();
       this.toggleSpinAnimation();
@@ -115,7 +113,6 @@ export class Player {
   }
 
   async startPlayer(track) {
-    clearInterval(this.timerId);
     this.isSongEnded = false;
 
     if (this.player) {

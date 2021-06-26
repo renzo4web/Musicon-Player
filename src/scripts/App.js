@@ -1,17 +1,17 @@
-import { Player } from './Components/Player';
-import { Track } from './Components/track';
-import { Soundcloud } from './Provider/Soundcloud';
+import { Player } from "./Components/Player";
+import { Track } from "./Components/track";
+import { Soundcloud } from "./Provider/Soundcloud";
 
 class App {
   constructor() {
     this.api = new Soundcloud();
 
-    this.$form = document.getElementById('form');
-    this.$searchInput = document.getElementById('search');
-    this.$gridTracks = document.getElementById('root');
-    this.$alertText = document.querySelector('.alert');
-    this.$progressBar = document.getElementById('progress-bar');
-    this.$player = document.querySelector('.player');
+    this.$form = document.getElementById("form");
+    this.$searchInput = document.getElementById("search");
+    this.$gridTracks = document.getElementById("root");
+    this.$alertText = document.querySelector(".alert");
+    this.$progressBar = document.getElementById("progress-bar");
+    this.$player = document.querySelector(".player");
 
     this.player = new Player();
     this.displayWelcomeTracks();
@@ -21,8 +21,8 @@ class App {
 
   validateInput(str) {
     if (!str) return;
-    str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gim, '');
-    str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gim, '');
+    str = str.replace(/<script[^>]*>([\S\s]*?)<\/script>/gim, "");
+    str = str.replace(/<\/?\w(?:[^"'>]|"[^"]*"|'[^']*')*>/gim, "");
     return str;
   }
 
@@ -32,7 +32,7 @@ class App {
     const pbWrapper = this.$progressBar.parentElement;
 
     if (on) {
-      pbWrapper.classList.remove('d-none');
+      pbWrapper.classList.remove("d-none");
       this.timerId = setInterval(() => {
         percent += 10;
         this.$progressBar.style.width = `${percent}%`;
@@ -42,7 +42,7 @@ class App {
 
     clearInterval(this.timerId);
     this.$progressBar.style.width = `0`;
-    pbWrapper.classList.add('d-none');
+    pbWrapper.classList.add("d-none");
   }
 
   handleSearch(e) {
@@ -55,12 +55,14 @@ class App {
   }
 
   async events() {
-    this.$form.addEventListener('submit', (e) => this.handleSearch(e));
-    this.$gridTracks.addEventListener('click', (event) => this.gridTracksHandler(event));
+    this.$form.addEventListener("submit", (e) => this.handleSearch(e));
+    this.$gridTracks.addEventListener("click", (event) =>
+      this.gridTracksHandler(event)
+    );
   }
 
   async gridTracksHandler({ target: trackClicked }) {
-    if (!trackClicked.classList.contains('hover-div')) return;
+    if (!trackClicked.classList.contains("hover-div")) return;
     const { stream: id, title } = trackClicked.parentElement.dataset;
 
     document.title = title;
@@ -77,29 +79,30 @@ class App {
   infoMessage({ show } = {}) {
     const delay = 3000;
     if (show) {
-      this.$alertText.classList.remove('d-none');
-      setTimeout(() => this.$alertText.classList.add('d-none'), delay);
+      this.$alertText.classList.remove("d-none");
+      setTimeout(() => this.$alertText.classList.add("d-none"), delay);
       return;
     }
-    this.$alertText.classList.add('d-none');
+    this.$alertText.classList.add("d-none");
   }
 
   displayPlayingTrack({ trackCover, title } = {}) {
-    this.$timebar = document.querySelector('#player-volume');
-    this.$playerTitle = document.querySelector('.player-title');
-    this.$playerImg = document.querySelector('.player-img');
+    this.$timebar = document.querySelector("#player-volume");
+    this.$playerTitle = document.querySelector(".player-title");
+    this.$playerImg = document.querySelector(".player-img");
 
+    this.$player.setAttribute("aria-label", `Track: ${title}`);
     this.$playerImg.src = trackCover;
     this.$playerTitle.textContent = title;
   }
 
   populateGrid(tracks) {
-    this.$gridTracks.innerHTML = '';
+    this.$gridTracks.innerHTML = "";
 
     this.$gridTracks.innerHTML = tracks
-      .filter(({ access }) => access === 'playable')
+      .filter(({ access }) => access === "playable")
       .map(Track)
-      .join('');
+      .join("");
   }
 
   async displayTracks(searchInput) {
@@ -116,7 +119,9 @@ class App {
   }
 
   async displayWelcomeTracks() {
-    const recomendationsTracks = [43585953, 718955440, 440675889, 747708442, 403758840];
+    const recomendationsTracks = [
+      210910118, 43585953, 718955440, 440675889, 747708442, 403758840,814203688,39983793,
+    ];
     const list = await this.api.getTracksById(recomendationsTracks);
     this.populateGrid(list);
   }

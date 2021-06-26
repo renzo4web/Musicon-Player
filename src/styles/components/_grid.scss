@@ -7,21 +7,35 @@
   color: #000;
 }
 
+@keyframes fadeIn {
+  from {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
 .track {
   position: relative;
   height: 100%;
   color: #000;
+  animation: fadeIn 1s linear;
 
   img {
     position: relative;
     width: 100%;
-    background-color: $mid-grey;
     transform: scale(1);
     cursor: pointer;
     z-index: 1;
   }
 
   .hover-div {
+    background-color: $mid-grey;
+    height: auto;
     margin: 0;
     padding: 0;
     transform: scale(1);

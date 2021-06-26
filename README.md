@@ -1,33 +1,12 @@
-# Webpack Frontend Starterkit
+# Musicon Player
 
-[![Dependabot badge](https://flat.badgen.net/dependabot/wbkd/webpack-starter?icon=dependabot)](https://dependabot.com/)
+[!Musicon Player](https://res.cloudinary.com/turbopila/video/upload/v1624751461/musicon-gif_dga8eg.gif)
 
-A lightweight foundation for your next webpack based frontend project.
+- Soundcloud API
+- Search Track
+- Play Tracks 
 
-### Installation
+Why? I like music like everyone else for that reason I wanted to make a player an app similar to Soundcloud, for userte soundcloud provides an SDK to interact with its API, thanks to this I could make a basic but very functional and fast music player and search engine.
+The challenge for me with this project was how to implement the timeline of the player, the quickest solution I found was to use an input of type range and set its maximum to be equal to the total duration of the song and update its value with respect to the current time of the music using an interval.
 
-```
-npm install
-```
-
-### Start Dev Server
-
-```
-npm start
-```
-
-### Build Prod Version
-
-```
-npm run build
-```
-
-### Features:
-
-- ES6 Support via [babel](https://babeljs.io/) (v7)
-- JavaScript Linting via [eslint-loader](https://github.com/MoOx/eslint-loader)
-- SASS Support via [sass-loader](https://github.com/jtangelder/sass-loader)
-- Autoprefixing of browserspecific CSS rules via [postcss](https://postcss.org/) and [autoprefixer](https://github.com/postcss/autoprefixer)
-- Style Linting via [stylelint](https://stylelint.io/)
-
-When you run `npm run build` we use the [mini-css-extract-plugin](https://github.com/webpack-contrib/mini-css-extract-plugin) to move the css to a separate file. The css file gets included in the head of the `index.html`.
+[Demo](https://musicon-player.netlify.app/)
