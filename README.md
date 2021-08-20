@@ -1,6 +1,6 @@
 # Musicon Player
 
-[!Musicon Player](https://res.cloudinary.com/turbopila/video/upload/v1624751461/musicon-gif_dga8eg.gif)
+![Musicon Player](https://res.cloudinary.com/turbopila/video/upload/v1624751461/musicon-gif_dga8eg.gif)
 
 - Soundcloud API
 - Search Track
